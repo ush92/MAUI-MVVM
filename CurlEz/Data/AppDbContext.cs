@@ -29,6 +29,24 @@ public class AppDbContext : IAppDbContext
             await _database.CreateTableAsync<RoutineExercise>();
             await _database.CreateTableAsync<Training>();
             await _database.CreateTableAsync<TrainingExercise>();
+
+            await AddSampleDataAsync(_database);
+        }
+    }
+
+    private async Task AddSampleDataAsync(SQLiteAsyncConnection db)
+    {
+        if (await db.Table<TrainingPlan>().CountAsync() == 0)
+        {
+            var trainingPlan = new TrainingPlan { Name = "Sample Plan", CreateDate = DateTime.Now, IsCurrent = true };
+            await db.InsertAsync(trainingPlan);
+
+            var routines = new List<Routine>
+            {
+                new Routine { Name = "Routine 1", CreateDate = DateTime.Now, TrainingPlanId = trainingPlan.ID },
+                new Routine { Name = "Routine 2", CreateDate = DateTime.Now, TrainingPlanId = trainingPlan.ID }
+            };
+            await db.InsertAllAsync(routines);
         }
     }
 

@@ -17,6 +17,11 @@ public class RoutineService : IRoutineService
         return _dbContext.GetConnection().Table<Routine>().ToListAsync();
     }
 
+    public Task<List<Routine>> GetRoutinesByTrainingPlanIdAsync(int trainingPlanId)
+    {
+        return _dbContext.GetConnection().Table<Routine>().Where(r => r.TrainingPlanId == trainingPlanId).ToListAsync();
+    }
+
     public Task<int> SaveRoutineAsync(Routine routine)
     {
         return _dbContext.GetConnection().InsertAsync(routine);
