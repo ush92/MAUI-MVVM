@@ -1,6 +1,6 @@
 ﻿using CurlEz.Models;
 
-namespace CurlEz.Data;
+namespace CurlEz.Data.Interfaces;
 
 public interface ITestService
 {

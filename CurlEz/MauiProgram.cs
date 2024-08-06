@@ -4,6 +4,8 @@ using CurlEz.Data;
 using CurlEz.ViewModels;
 using CurlEz.Views;
 using CurlEz.Infrastructure;
+using CurlEz.Data.Services;
+using CurlEz.Data.Interfaces;
 
 namespace CurlEz;
 
@@ -22,9 +24,17 @@ public static class MauiProgram
             });
 
         builder.Services.AddSingleton<IAppDbContext, AppDbContext>();
-        builder.Services.AddTransient<ITestService, TestService>();
         builder.Services.AddSingleton<INavigationService, NavigationService>();
         builder.Services.AddSingleton<IRouteRegistrar, RouteRegistrar>();
+
+        builder.Services.AddTransient<ITestService, TestService>();
+        builder.Services.AddTransient<ITrainingPlanService, TrainingPlanService>();
+        builder.Services.AddTransient<IRoutineService, RoutineService>();
+        builder.Services.AddTransient<IExerciseTypeService, ExerciseTypeService>();
+        builder.Services.AddTransient<IExerciseService, ExerciseService>();
+        builder.Services.AddTransient<IRoutineExerciseService, RoutineExerciseService>();
+        builder.Services.AddTransient<ITrainingService, TrainingService>();
+        builder.Services.AddTransient<ITrainingExerciseService, TrainingExerciseService>();
 
         builder.Services.AddTransient<MainPageViewModel>();
         builder.Services.AddTransient<SecondPageViewModel>();

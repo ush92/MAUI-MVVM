@@ -1,4 +1,4 @@
-using CurlEz.Data;
+using CurlEz.Data.Interfaces;
 using CurlEz.Infrastructure;
 using CurlEz.Models;
 using CurlEz.ViewModels;

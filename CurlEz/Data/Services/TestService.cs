@@ -1,6 +1,7 @@
-﻿using CurlEz.Models;
+﻿using CurlEz.Data.Interfaces;
+using CurlEz.Models;
 
-namespace CurlEz.Data;
+namespace CurlEz.Data.Services;
 
 public class TestService : ITestService
 {

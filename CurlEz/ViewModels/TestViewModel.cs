@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using CurlEz.Data;
+using CurlEz.Data.Interfaces;
 using CurlEz.Infrastructure;
 using CurlEz.Models;
 using System.Collections.ObjectModel;
