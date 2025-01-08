@@ -1,3 +1,3 @@
 # CurlEz
 
-(work in progress)
+basic MVVM template for MAUI app 
